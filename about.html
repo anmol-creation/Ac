@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - anmolcreations (.ac)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Specific styles for About page */
+        .about-hero {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        .about-hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        .about-hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Accordion Styles */
+        .accordion-container {
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        .accordion-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .accordion-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .accordion-header:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+        [data-theme="dark"] .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background: rgba(0,0,0,0.01);
+            padding: 0 1.5rem;
+        }
+        [data-theme="dark"] .accordion-content {
+            background: rgba(255,255,255,0.01);
+        }
+        .accordion-item.active .accordion-content {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .skill-item svg {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+        .timeline-item {
+            border-left: 2px solid var(--border-color);
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-color);
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .social-link:hover {
+            background: var(--card-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="brand-logo">.ac</a>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+        <nav id="main-nav" class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="solutions.html">Online Solutions</a></li>
+                    <li><a href="https://anmol-creation.github.io/portfolio/">Portfolio</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="about-hero-title">About Me</h1>
+                <p class="about-hero-subtitle">A creative space where my journey, skills, and projects come together.</p>
+            </div>
+        </section>
+
+        <!-- Content Section with Accordions -->
+        <section class="cards-section">
+            <div class="container accordion-container">
+
+                <!-- Journey / Experience Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="map"></i> My Journey</span>
+                        <i data-lucide="chevron-down" class="accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div style="padding-top: 1rem;">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2020 - Present</div>
+                                <div class="timeline-title">anmolcreations (.ac)</div>
+                                <p class="card-description">Building digital solutions, creative designs, and utility tools for everyday needs.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2018 - 2020</div>
+                                <div class="timeline-title">Freelance Designer & Developer</div>
+                                <p class="card-description">Worked on various branding, web development, and digital art projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="cpu"></i> Skills & Expertise</span>
+                        <i data-lucide="chevron-down" class="accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="skills-grid" style="padding-bottom: 1rem;">
+                            <div class="skill-item">
+                                <i data-lucide="code"></i>
+                                <span>Web Dev</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="palette"></i>
+                                <span>UI/UX</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="pen-tool"></i>
+                                <span>Branding</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="video"></i>
+                                <span>Video Edit</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="camera"></i>
+                                <span>Photography</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="terminal"></i>
+                                <span>Prompt Eng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connect / Links Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="link"></i> Connect & Links</span>
+                        <i data-lucide="chevron-down" class="accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div style="padding-bottom: 1rem;">
+                            <p class="card-description">Feel free to reach out or explore more of my work across different platforms.</p>
+                            <div class="social-links">
+                                <a href="https://github.com/anmol-creation" target="_blank" class="social-link">
+                                    <i data-lucide="github"></i> GitHub
+                                </a>
+                                <a href="https://anmol-creation.github.io/portfolio/" target="_blank" class="social-link">
+                                    <i data-lucide="layout"></i> Portfolio
+                                </a>
+                                <a href="mailto:hello@example.com" class="social-link">
+                                    <i data-lucide="mail"></i> Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 anmolcreations. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const content = item.querySelector('.accordion-content');
+
+                // Toggle active class
+                item.classList.toggle('active');
+
+                // Animate height
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = "0";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
