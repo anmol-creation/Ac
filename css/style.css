@@ -306,6 +306,16 @@ body {
     background: rgba(244, 63, 94, 0.1);
 }
 
+/* Hindu Encyclopedia -> Soft Saffron / Gold */
+.card-hindu:hover {
+    box-shadow: 0 10px 30px rgba(250, 204, 21, 0.1), 0 0 20px rgba(255, 255, 255, 0.05);
+    border-color: rgba(250, 204, 21, 0.3);
+}
+.card-hindu:hover .icon-item {
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.1);
+}
+
 /* Nav Menu */
 .main-nav {
     display: none; /* Hidden by default */
