@@ -276,6 +276,36 @@ body {
     background: rgba(74, 222, 128, 0.1);
 }
 
+/* Tech Guide Hub -> Soft Orange / Amber */
+.card-techguide:hover {
+    box-shadow: 0 10px 30px rgba(251, 146, 60, 0.1), 0 0 20px rgba(255, 255, 255, 0.05);
+    border-color: rgba(251, 146, 60, 0.3);
+}
+.card-techguide:hover .icon-item {
+    color: #fb923c;
+    background: rgba(251, 146, 60, 0.1);
+}
+
+/* What Next -> Soft Violet */
+.card-whatnext:hover {
+    box-shadow: 0 10px 30px rgba(167, 139, 250, 0.1), 0 0 20px rgba(255, 255, 255, 0.05);
+    border-color: rgba(167, 139, 250, 0.3);
+}
+.card-whatnext:hover .icon-item {
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+}
+
+/* RoadRiders -> Soft Red / Rose */
+.card-roadriders:hover {
+    box-shadow: 0 10px 30px rgba(244, 63, 94, 0.1), 0 0 20px rgba(255, 255, 255, 0.05);
+    border-color: rgba(244, 63, 94, 0.3);
+}
+.card-roadriders:hover .icon-item {
+    color: #f43f5e;
+    background: rgba(244, 63, 94, 0.1);
+}
+
 /* Nav Menu */
 .main-nav {
     display: none; /* Hidden by default */
