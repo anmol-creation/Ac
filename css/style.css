@@ -71,7 +71,14 @@ body {
 
 /* Cards Section */
 .cards-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
+}
+/* Specifically add padding to top for the first section below hero, and bottom for the last */
+.cards-section:first-of-type {
+    padding-top: 4rem;
+}
+.cards-section:last-of-type {
+    padding-bottom: 4rem;
 }
 
 .cards-grid {
@@ -119,7 +126,7 @@ body {
 /* Sub-card / Inner Grid */
 .sub-card-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 1rem;
 }
@@ -129,6 +136,8 @@ body {
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
 }
 
 .sub-card-title {
