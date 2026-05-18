@@ -49,9 +49,29 @@
         }
         .about-hero-subtitle {
             font-size: 1.5rem;
-            color: var(--accent-pink, #ff6b9e); /* Soft pink creative touch */
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 600;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .typewriter-text {
+            color: var(--accent-pink, #ff6b9e);
+            position: relative;
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: var(--accent-pink, #ff6b9e);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
         }
         .about-hero-desc {
             font-size: 1rem;
@@ -255,7 +275,10 @@
                 <div class="about-hero-content">
                     <span class="about-hero-greeting">Hi, This is</span>
                     <h1 class="about-hero-title">anmol</h1>
-                    <p class="about-hero-subtitle">I'm a Photographer & Creator</p>
+                    <div class="about-hero-subtitle">
+                        <span>I'm a</span>
+                        <span class="typewriter-text" id="typewriter-text"></span><span class="typewriter-cursor"></span>
+                    </div>
                     <p class="about-hero-desc">Welcome to my creative space. This is where my journey, skills, and digital projects come together.</p>
                 </div>
                 <div class="about-hero-image-container">
@@ -405,6 +428,48 @@
     <script src="js/main.js"></script>
     <script>
         lucide.createIcons();
+
+        // Typewriter Effect
+        const roles = ["Photographer", "Coder", "Web Developer", "Graphic Designer", "Creator"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter-text');
+
+        function typeWriter() {
+            const currentRole = roles[roleIndex];
+
+            if (isDeleting) {
+                // Remove character
+                typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Add character
+                typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Determine typing speed
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            // State transitions
+            if (!isDeleting && charIndex === currentRole.length) {
+                // Pause at the end of the word
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500; // Pause before typing next word
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Start typing effect
+        if (typewriterElement) {
+            setTimeout(typeWriter, 500);
+        }
 
         // Accordion functionality
         document.querySelectorAll('.accordion-header').forEach(button => {
