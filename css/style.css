@@ -378,3 +378,82 @@ body {
     color: #ffffff;
 }
 /* Ensure links in dark header on light theme stay white or handle via specific class */
+
+/* Skills Connected Timeline Styles */
+.skills-timeline-wrapper {
+    position: relative;
+    overflow-x: auto;
+    padding: 2rem 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.skills-timeline-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.skills-timeline-track {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: max-content;
+    padding: 0 1rem;
+    gap: 3rem;
+}
+/* The continuous horizontal connecting line */
+.skills-timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #333;
+    z-index: 0;
+}
+[data-theme="light"] .skills-timeline-track::before {
+    background: #ddd;
+}
+.skills-timeline-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+}
+.skills-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+.skills-top i {
+    color: var(--text-muted);
+}
+.skills-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    border: 2px solid var(--text-muted);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.skills-bottom {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+    padding: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
