@@ -1,0 +1,79 @@
+/* journey.css */
+.page-main {
+    padding: 8rem 0 4rem;
+}
+
+.page-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.full-timeline-container {
+    border-left: 2px solid var(--border-color);
+    margin-left: 1rem;
+    padding-left: 2rem;
+}
+
+.full-timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.full-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.full-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -34px; /* Align with border-left */
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-color);
+    box-shadow: 0 0 10px rgba(150, 150, 150, 0.3);
+}
+
+[data-theme="dark"] .full-timeline-item::before {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.full-timeline-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.full-timeline-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.full-timeline-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.btn-outline:hover {
+    background: var(--card-hover);
+}

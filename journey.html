@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey - anmolcreations (.ac)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/journey.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="brand-logo">.ac</a>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+        <nav id="main-nav" class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="solutions.html">Online Solutions</a></li>
+                    <li><a href="https://anmol-creation.github.io/portfolio/">Portfolio</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <div class="container page-container">
+            <h1 class="page-title">My Journey</h1>
+            <p class="page-subtitle">A detailed look into my timeline, projects, and experiences.</p>
+
+            <div class="full-timeline-container">
+                <div class="full-timeline-item">
+                    <div class="full-timeline-date">Jan 2026</div>
+                    <div class="full-timeline-title">PromtoEngine Concept</div>
+                    <p class="full-timeline-description">Conceived the idea and began development on PromtoEngine, expanding into AI prompt engineering tools.</p>
+                </div>
+                <div class="full-timeline-item">
+                    <div class="full-timeline-date">Nov 2025</div>
+                    <div class="full-timeline-title">The .ac Foundation</div>
+                    <p class="full-timeline-description">Started the foundation of the .ac website, initiating work on the very first central brand project idea.</p>
+                </div>
+                <div class="full-timeline-item">
+                    <div class="full-timeline-date">2020 - Present</div>
+                    <div class="full-timeline-title">anmolcreations (.ac)</div>
+                    <p class="full-timeline-description">Building digital solutions, creative designs, and utility tools for everyday needs.</p>
+                </div>
+                <div class="full-timeline-item">
+                    <div class="full-timeline-date">2018 - 2020</div>
+                    <div class="full-timeline-title">Freelance Designer & Developer</div>
+                    <p class="full-timeline-description">Worked on various branding, web development, and digital art projects.</p>
+                </div>
+            </div>
+
+            <div class="back-link-container" style="margin-top: 3rem; text-align: center;">
+                <a href="about.html" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.75rem 1.5rem; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); transition: all 0.3s;">
+                    <i data-lucide="arrow-left"></i> Back to About
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 anmolcreations. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

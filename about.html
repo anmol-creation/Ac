@@ -124,7 +124,127 @@
             }
         }
 
-        /* Accordion Styles */
+        /* Horizontal Timeline Styles */
+        .horizontal-timeline-section {
+            margin: 4rem auto;
+            max-width: 1000px;
+            padding: 0 1.5rem;
+        }
+        .horizontal-timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .horizontal-timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .horizontal-timeline-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .horizontal-timeline-link:hover {
+            background: var(--card-hover);
+        }
+        .horizontal-timeline-wrapper {
+            position: relative;
+            overflow-x: auto;
+            padding: 2rem 0;
+            /* Hide scrollbar for cleaner look, but keep functional */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .horizontal-timeline-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .horizontal-timeline-track {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            min-width: max-content;
+            padding: 0 1rem;
+            gap: 2rem;
+        }
+        /* The main horizontal line */
+        .horizontal-timeline-track::before {
+            content: '';
+            position: absolute;
+            top: 24px; /* Align with the dots */
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-blue, #6ba5ff); /* .ac theme color base */
+            z-index: 0;
+        }
+        .horizontal-timeline-item {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+        }
+        .horizontal-timeline-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 3px solid var(--accent-blue, #6ba5ff);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 10px rgba(107, 165, 255, 0.4);
+            /* align self slightly down to center on line */
+            transform: translateY(16px);
+        }
+        /* Variations in colors for dots and borders */
+        .item-promto .horizontal-timeline-dot { border-color: var(--accent-cyan, #06b6d4); box-shadow: 0 0 10px rgba(6, 182, 212, 0.4); }
+        .item-ac .horizontal-timeline-dot { border-color: var(--accent-blue, #6ba5ff); box-shadow: 0 0 10px rgba(107, 165, 255, 0.4); }
+        .item-present .horizontal-timeline-dot { border-color: var(--accent-pink, #ff6b9e); box-shadow: 0 0 10px rgba(255, 107, 158, 0.4); }
+        .item-freelance .horizontal-timeline-dot { border-color: var(--text-color); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+
+        .horizontal-timeline-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        .item-promto .horizontal-timeline-card { border-color: var(--accent-cyan, #06b6d4); }
+        .item-ac .horizontal-timeline-card { border-color: var(--accent-blue, #6ba5ff); }
+        .item-present .horizontal-timeline-card { border-color: var(--accent-pink, #ff6b9e); }
+        .item-freelance .horizontal-timeline-card { border-color: var(--border-color); }
+
+        .horizontal-timeline-card:hover {
+            transform: translateY(-5px);
+        }
+        .ht-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-color);
+        }
+        .ht-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .accordion-container {
             margin: 2rem auto;
             max-width: 800px;
@@ -197,43 +317,6 @@
             margin-bottom: 0.5rem;
             color: var(--text-muted);
         }
-        .timeline-container {
-            border-left: 2px solid #333;
-            margin-left: 1rem;
-            padding-left: 2rem;
-            padding-bottom: 1rem;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -34px; /* Move left to align over the border */
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        .timeline-date {
-            font-size: 0.85rem;
-            color: #a1a1a1;
-            margin-bottom: 0.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
         .social-links {
             display: flex;
             gap: 1rem;
@@ -304,43 +387,60 @@
             </div>
         </section>
 
+        <!-- Horizontal Journey Section -->
+        <section class="horizontal-timeline-section">
+            <div class="horizontal-timeline-header">
+                <h2 class="horizontal-timeline-title"><i data-lucide="map"></i> My Journey</h2>
+                <a href="journey.html" class="horizontal-timeline-link">
+                    View Full Journey <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="horizontal-timeline-wrapper">
+                <div class="horizontal-timeline-track">
+                    <!-- Event 1 -->
+                    <div class="horizontal-timeline-item item-freelance">
+                        <div class="horizontal-timeline-dot"></div>
+                        <div class="horizontal-timeline-card">
+                            <div class="ht-title">Freelance</div>
+                            <div class="ht-subtitle">Journey Start</div>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="horizontal-timeline-item item-present">
+                        <div class="horizontal-timeline-dot"></div>
+                        <div class="horizontal-timeline-card">
+                            <div class="ht-title">anmolcreations (.ac)</div>
+                            <div class="ht-subtitle">Building Solutions</div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="horizontal-timeline-item item-ac">
+                        <div class="horizontal-timeline-dot"></div>
+                        <div class="horizontal-timeline-card">
+                            <div class="ht-title">The .ac Foundation</div>
+                            <div class="ht-subtitle">Central Brand Idea</div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="horizontal-timeline-item item-promto">
+                        <div class="horizontal-timeline-dot"></div>
+                        <div class="horizontal-timeline-card">
+                            <div class="ht-title">PromtoEngine</div>
+                            <div class="ht-subtitle">Concept Development</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Content Section with Accordions -->
         <section class="cards-section">
             <div class="container accordion-container">
-
-                <!-- Journey / Experience Accordion -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="map"></i> My Journey</span>
-                        <i data-lucide="chevron-down" class="accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <div style="padding-top: 1rem;">
-                            <div class="timeline-container">
-                                <div class="timeline-item">
-                                    <div class="timeline-date">Jan 2026</div>
-                                    <div class="timeline-title">PromtoEngine Concept</div>
-                                    <p class="card-description">Conceived the idea and began development on PromtoEngine, expanding into AI prompt engineering tools.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-date">Nov 2025</div>
-                                    <div class="timeline-title">The .ac Foundation</div>
-                                    <p class="card-description">Started the foundation of the .ac website, initiating work on the very first central brand project idea.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-date">2020 - Present</div>
-                                    <div class="timeline-title">anmolcreations (.ac)</div>
-                                    <p class="card-description">Building digital solutions, creative designs, and utility tools for everyday needs.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-date">2018 - 2020</div>
-                                    <div class="timeline-title">Freelance Designer & Developer</div>
-                                    <p class="card-description">Worked on various branding, web development, and digital art projects.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Skills Accordion -->
                 <div class="accordion-item">
