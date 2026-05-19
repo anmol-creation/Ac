@@ -277,21 +277,77 @@
             letter-spacing: 0.5px;
         }
 
-        /* Stock Logos Container */
-        .stock-logos-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+        /* Stock Logos Marquee Container */
+        .stock-marquee-wrapper {
+            overflow: hidden;
+            width: 100%;
             margin-top: 1rem;
-            padding: 1rem;
+            padding: 1rem 0;
             background: rgba(255, 255, 255, 0.02);
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
         }
 
-        [data-theme="light"] .stock-logos-container {
+        /* Fade effect on the edges */
+        .stock-marquee-wrapper::before,
+        .stock-marquee-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .stock-marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #1a1a1a, transparent);
+        }
+
+        .stock-marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #1a1a1a, transparent);
+        }
+
+        [data-theme="light"] .stock-marquee-wrapper {
             background: rgba(0, 0, 0, 0.02);
             border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .stock-marquee-wrapper::before {
+            background: linear-gradient(to right, #f4f4f4, transparent);
+        }
+
+        [data-theme="light"] .stock-marquee-wrapper::after {
+            background: linear-gradient(to left, #f4f4f4, transparent);
+        }
+
+        .stock-marquee-track {
+            display: flex;
+            width: fit-content;
+            animation: scroll-marquee 20s linear infinite;
+        }
+
+        .stock-marquee-wrapper:hover .stock-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .stock-marquee-content {
+            display: flex;
+            gap: 2.5rem;
+            padding-right: 2.5rem; /* Match the gap so loop is seamless */
+        }
+
+        @keyframes scroll-marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                /* Translate by 50% since the track has 2 identical children */
+                transform: translateX(-50%);
+            }
         }
 
         .stock-logo-link {
@@ -577,39 +633,79 @@
             <div class="container accordion-container">
                 <h2 class="horizontal-timeline-title" style="margin-bottom: 1rem;"><i data-lucide="camera"></i> Stock Photography Contributions</h2>
                 <p class="card-description" style="margin-bottom: 1.5rem; color: var(--text-secondary);">I am an active contributor to multiple stock photography platforms. Explore my portfolios below.</p>
-                <div class="stock-logos-container">
-                    <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="stock-logo-link">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shutterstock.svg" alt="Shutterstock" class="stock-logo-img stock-shutterstock">
-                        <span class="stock-logo-text">Shutterstock</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobestock.svg" alt="Adobe Stock" class="stock-logo-img stock-adobe">
-                        <span class="stock-logo-text">Adobe Stock</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <div class="stock-text-logo stock-dp" aria-label="Depositphotos">DP</div>
-                        <span class="stock-logo-text">Depositphotos</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <div class="stock-text-logo stock-dt" aria-label="Dreamstime">DT</div>
-                        <span class="stock-logo-text">Dreamstime</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <div class="stock-text-logo stock-123" aria-label="123RF">123</div>
-                        <span class="stock-logo-text">123RF</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pexels.svg" alt="Pexels" class="stock-logo-img stock-pexels">
-                        <span class="stock-logo-text">Pexels</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/unsplash.svg" alt="Unsplash" class="stock-logo-img stock-unsplash">
-                        <span class="stock-logo-text">Unsplash</span>
-                    </a>
-                    <a href="#" target="_blank" class="stock-logo-link">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pixabay.svg" alt="Pixabay" class="stock-logo-img stock-pixabay">
-                        <span class="stock-logo-text">Pixabay</span>
-                    </a>
+                <div class="stock-marquee-wrapper">
+                    <div class="stock-marquee-track">
+                        <div class="stock-marquee-content">
+                            <!-- Logo items group 1 -->
+                            <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shutterstock.svg" alt="Shutterstock" class="stock-logo-img stock-shutterstock">
+                                <span class="stock-logo-text">Shutterstock</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobestock.svg" alt="Adobe Stock" class="stock-logo-img stock-adobe">
+                                <span class="stock-logo-text">Adobe Stock</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <div class="stock-text-logo stock-dp" aria-label="Depositphotos">DP</div>
+                                <span class="stock-logo-text">Depositphotos</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <div class="stock-text-logo stock-dt" aria-label="Dreamstime">DT</div>
+                                <span class="stock-logo-text">Dreamstime</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <div class="stock-text-logo stock-123" aria-label="123RF">123</div>
+                                <span class="stock-logo-text">123RF</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pexels.svg" alt="Pexels" class="stock-logo-img stock-pexels">
+                                <span class="stock-logo-text">Pexels</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/unsplash.svg" alt="Unsplash" class="stock-logo-img stock-unsplash">
+                                <span class="stock-logo-text">Unsplash</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pixabay.svg" alt="Pixabay" class="stock-logo-img stock-pixabay">
+                                <span class="stock-logo-text">Pixabay</span>
+                            </a>
+                        </div>
+                        <div class="stock-marquee-content" aria-hidden="true">
+                            <!-- Logo items group 2 (Duplicate for infinite scroll) -->
+                            <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shutterstock.svg" alt="Shutterstock" class="stock-logo-img stock-shutterstock">
+                                <span class="stock-logo-text">Shutterstock</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobestock.svg" alt="Adobe Stock" class="stock-logo-img stock-adobe">
+                                <span class="stock-logo-text">Adobe Stock</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <div class="stock-text-logo stock-dp" aria-label="Depositphotos">DP</div>
+                                <span class="stock-logo-text">Depositphotos</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <div class="stock-text-logo stock-dt" aria-label="Dreamstime">DT</div>
+                                <span class="stock-logo-text">Dreamstime</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <div class="stock-text-logo stock-123" aria-label="123RF">123</div>
+                                <span class="stock-logo-text">123RF</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pexels.svg" alt="Pexels" class="stock-logo-img stock-pexels">
+                                <span class="stock-logo-text">Pexels</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/unsplash.svg" alt="Unsplash" class="stock-logo-img stock-unsplash">
+                                <span class="stock-logo-text">Unsplash</span>
+                            </a>
+                            <a href="#" target="_blank" class="stock-logo-link">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pixabay.svg" alt="Pixabay" class="stock-logo-img stock-pixabay">
+                                <span class="stock-logo-text">Pixabay</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
