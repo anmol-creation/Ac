@@ -277,6 +277,63 @@
             letter-spacing: 0.5px;
         }
 
+        /* Stock Logos Container */
+        .stock-logos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="light"] .stock-logos-container {
+            background: rgba(0, 0, 0, 0.02);
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .stock-logo-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .stock-logo-link:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .stock-logo-img {
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        /* Original brand colors using CSS filters on black SVGs */
+        .stock-shutterstock { filter: invert(34%) sepia(85%) saturate(7173%) hue-rotate(345deg) brightness(97%) contrast(100%); }
+        .stock-adobe { filter: invert(16%) sepia(99%) saturate(7469%) hue-rotate(357deg) brightness(97%) contrast(116%); }
+        .stock-pexels { filter: invert(44%) sepia(80%) saturate(1209%) hue-rotate(130deg) brightness(92%) contrast(101%); }
+        .stock-unsplash { filter: invert(1); } /* Unsplash is typically white/black */
+        [data-theme="light"] .stock-unsplash { filter: invert(0); }
+        .stock-pixabay { filter: invert(61%) sepia(21%) saturate(1637%) hue-rotate(76deg) brightness(97%) contrast(87%); }
+
+        .stock-logo-link:hover .stock-logo-img {
+            opacity: 1;
+        }
+
+        .stock-logo-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
         .accordion-container {
             margin: 2rem auto;
             max-width: 800px;
@@ -534,45 +591,36 @@
                     </div>
                 </div>
 
-                <!-- Stock Photography Accordion -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="camera"></i> Stock Photography Contributions</span>
-                        <i data-lucide="chevron-down" class="accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <div style="padding-bottom: 1rem;">
-                            <p class="card-description">I am an active contributor to multiple stock photography platforms. Explore my portfolios below (Links coming soon).</p>
-                            <div class="social-links">
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Adobe Stock
-                                </a>
-                                <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Shutterstock
-                                </a>
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Depositphotos
-                                </a>
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Dreamstime
-                                </a>
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> 123RF
-                                </a>
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Pexels
-                                </a>
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Unsplash
-                                </a>
-                                <a href="#" target="_blank" class="social-link">
-                                    <i data-lucide="image"></i> Pixabay
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
+            <div class="container accordion-container" style="margin-top: 4rem;">
+                <h2 class="horizontal-timeline-title" style="margin-bottom: 1rem;"><i data-lucide="camera"></i> Stock Photography Contributions</h2>
+                <p class="card-description" style="margin-bottom: 1.5rem; color: var(--text-secondary);">I am an active contributor to multiple stock photography platforms. Explore my portfolios below.</p>
+                <div class="stock-logos-container">
+                    <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="stock-logo-link">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shutterstock.svg" alt="Shutterstock" class="stock-logo-img stock-shutterstock">
+                        <span class="stock-logo-text">Shutterstock</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobestock.svg" alt="Adobe Stock" class="stock-logo-img stock-adobe">
+                        <span class="stock-logo-text">Adobe Stock</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pexels.svg" alt="Pexels" class="stock-logo-img stock-pexels">
+                        <span class="stock-logo-text">Pexels</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/unsplash.svg" alt="Unsplash" class="stock-logo-img stock-unsplash">
+                        <span class="stock-logo-text">Unsplash</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pixabay.svg" alt="Pixabay" class="stock-logo-img stock-pixabay">
+                        <span class="stock-logo-text">Pixabay</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container accordion-container">
                 <!-- Connect / Links Accordion -->
                 <div class="accordion-item">
                     <button class="accordion-header">
