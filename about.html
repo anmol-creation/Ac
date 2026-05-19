@@ -325,7 +325,28 @@
         [data-theme="light"] .stock-unsplash { filter: invert(0); }
         .stock-pixabay { filter: invert(61%) sepia(21%) saturate(1637%) hue-rotate(76deg) brightness(97%) contrast(87%); }
 
-        .stock-logo-link:hover .stock-logo-img {
+        /* Custom Text Logos for missing brands */
+        .stock-text-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 800;
+            color: #ffffff;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            letter-spacing: -0.5px;
+        }
+
+        .stock-dp { background-color: #E74C3C; } /* Depositphotos */
+        .stock-dt { background-color: #27AE60; } /* Dreamstime */
+        .stock-123 { background-color: #2C3E50; } /* 123RF */
+
+        .stock-logo-link:hover .stock-logo-img,
+        .stock-logo-link:hover .stock-text-logo {
             opacity: 1;
         }
 
@@ -604,6 +625,18 @@
                     <a href="#" target="_blank" class="stock-logo-link">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/adobestock.svg" alt="Adobe Stock" class="stock-logo-img stock-adobe">
                         <span class="stock-logo-text">Adobe Stock</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <div class="stock-text-logo stock-dp" aria-label="Depositphotos">DP</div>
+                        <span class="stock-logo-text">Depositphotos</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <div class="stock-text-logo stock-dt" aria-label="Dreamstime">DT</div>
+                        <span class="stock-logo-text">Dreamstime</span>
+                    </a>
+                    <a href="#" target="_blank" class="stock-logo-link">
+                        <div class="stock-text-logo stock-123" aria-label="123RF">123</div>
+                        <span class="stock-logo-text">123RF</span>
                     </a>
                     <a href="#" target="_blank" class="stock-logo-link">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pexels.svg" alt="Pexels" class="stock-logo-img stock-pexels">
