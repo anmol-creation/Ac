@@ -197,30 +197,42 @@
             margin-bottom: 0.5rem;
             color: var(--text-muted);
         }
+        .timeline-container {
+            border-left: 2px solid #333;
+            margin-left: 1rem;
+            padding-left: 2rem;
+            padding-bottom: 1rem;
+        }
         .timeline-item {
-            border-left: 2px solid var(--border-color);
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
             position: relative;
+            margin-bottom: 2rem;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -6px;
-            top: 0;
-            width: 10px;
-            height: 10px;
+            left: -34px; /* Move left to align over the border */
+            top: 5px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: var(--text-color);
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         .timeline-date {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: #a1a1a1;
             margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .timeline-title {
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: #ffffff;
         }
         .social-links {
             display: flex;
@@ -304,15 +316,27 @@
                     </button>
                     <div class="accordion-content">
                         <div style="padding-top: 1rem;">
-                            <div class="timeline-item">
-                                <div class="timeline-date">2020 - Present</div>
-                                <div class="timeline-title">anmolcreations (.ac)</div>
-                                <p class="card-description">Building digital solutions, creative designs, and utility tools for everyday needs.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-date">2018 - 2020</div>
-                                <div class="timeline-title">Freelance Designer & Developer</div>
-                                <p class="card-description">Worked on various branding, web development, and digital art projects.</p>
+                            <div class="timeline-container">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Jan 2026</div>
+                                    <div class="timeline-title">PromtoEngine Concept</div>
+                                    <p class="card-description">Conceived the idea and began development on PromtoEngine, expanding into AI prompt engineering tools.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Nov 2025</div>
+                                    <div class="timeline-title">The .ac Foundation</div>
+                                    <p class="card-description">Started the foundation of the .ac website, initiating work on the very first central brand project idea.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2020 - Present</div>
+                                    <div class="timeline-title">anmolcreations (.ac)</div>
+                                    <p class="card-description">Building digital solutions, creative designs, and utility tools for everyday needs.</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2018 - 2020</div>
+                                    <div class="timeline-title">Freelance Designer & Developer</div>
+                                    <p class="card-description">Worked on various branding, web development, and digital art projects.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
