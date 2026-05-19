@@ -277,8 +277,8 @@
             letter-spacing: 0.5px;
         }
 
-        /* Stock Logos Marquee Container */
-        .stock-marquee-wrapper {
+        /* Generic Marquee Container */
+        .marquee-wrapper {
             overflow: hidden;
             width: 100%;
             margin-top: 1rem;
@@ -290,8 +290,8 @@
         }
 
         /* Fade effect on the edges */
-        .stock-marquee-wrapper::before,
-        .stock-marquee-wrapper::after {
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
             content: "";
             position: absolute;
             top: 0;
@@ -301,40 +301,40 @@
             pointer-events: none;
         }
 
-        .stock-marquee-wrapper::before {
+        .marquee-wrapper::before {
             left: 0;
             background: linear-gradient(to right, #1a1a1a, transparent);
         }
 
-        .stock-marquee-wrapper::after {
+        .marquee-wrapper::after {
             right: 0;
             background: linear-gradient(to left, #1a1a1a, transparent);
         }
 
-        [data-theme="light"] .stock-marquee-wrapper {
+        [data-theme="light"] .marquee-wrapper {
             background: rgba(0, 0, 0, 0.02);
             border-color: rgba(0, 0, 0, 0.05);
         }
 
-        [data-theme="light"] .stock-marquee-wrapper::before {
+        [data-theme="light"] .marquee-wrapper::before {
             background: linear-gradient(to right, #f4f4f4, transparent);
         }
 
-        [data-theme="light"] .stock-marquee-wrapper::after {
+        [data-theme="light"] .marquee-wrapper::after {
             background: linear-gradient(to left, #f4f4f4, transparent);
         }
 
-        .stock-marquee-track {
+        .marquee-track {
             display: flex;
             width: fit-content;
             animation: scroll-marquee 20s linear infinite;
         }
 
-        .stock-marquee-wrapper:hover .stock-marquee-track {
+        .marquee-wrapper:hover .marquee-track {
             animation-play-state: paused;
         }
 
-        .stock-marquee-content {
+        .marquee-content {
             display: flex;
             gap: 2.5rem;
             padding-right: 2.5rem; /* Match the gap so loop is seamless */
@@ -464,12 +464,6 @@
             padding: 0 1.5rem 1.5rem;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
         .skill-item {
             display: flex;
             flex-direction: column;
@@ -478,10 +472,26 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             text-align: center;
+            min-width: 120px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
         }
         .skill-item svg {
             margin-bottom: 0.5rem;
             color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+        .skill-item:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        [data-theme="light"] .skill-item:hover {
+            border-color: rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .skill-item:hover svg {
+            color: var(--text-color);
         }
         .social-links {
             display: flex;
@@ -633,9 +643,9 @@
             <div class="container accordion-container">
                 <h2 class="horizontal-timeline-title" style="margin-bottom: 1rem;"><i data-lucide="camera"></i> Stock Photography Contributions</h2>
                 <p class="card-description" style="margin-bottom: 1.5rem; color: var(--text-secondary);">I am an active contributor to multiple stock photography platforms. Explore my portfolios below.</p>
-                <div class="stock-marquee-wrapper">
-                    <div class="stock-marquee-track">
-                        <div class="stock-marquee-content">
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <div class="marquee-content">
                             <!-- Logo items group 1 -->
                             <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="stock-logo-link">
                                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shutterstock.svg" alt="Shutterstock" class="stock-logo-img stock-shutterstock">
@@ -670,7 +680,7 @@
                                 <span class="stock-logo-text">Pixabay</span>
                             </a>
                         </div>
-                        <div class="stock-marquee-content" aria-hidden="true">
+                        <div class="marquee-content" aria-hidden="true">
                             <!-- Logo items group 2 (Duplicate for infinite scroll) -->
                             <a href="https://www.shutterstock.com/g/AnmolCreations?sort=popular" target="_blank" class="stock-logo-link">
                                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/shutterstock.svg" alt="Shutterstock" class="stock-logo-img stock-shutterstock">
@@ -710,15 +720,38 @@
             </div>
 
             <div class="container accordion-container" style="margin-top: 4rem;">
-
-                <!-- Skills Accordion -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="cpu"></i> Skills & Expertise</span>
-                        <i data-lucide="chevron-down" class="accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="skills-grid" style="padding-bottom: 1rem;">
+                <h2 class="horizontal-timeline-title" style="margin-bottom: 1rem;"><i data-lucide="cpu"></i> Skills & Expertise</h2>
+                <div class="marquee-wrapper">
+                    <div class="marquee-track" style="animation-direction: reverse; animation-duration: 25s;">
+                        <div class="marquee-content">
+                            <!-- Skill items group 1 -->
+                            <div class="skill-item">
+                                <i data-lucide="code"></i>
+                                <span>Web Dev</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="palette"></i>
+                                <span>UI/UX</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="pen-tool"></i>
+                                <span>Branding</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="video"></i>
+                                <span>Video Edit</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="camera"></i>
+                                <span>Photography</span>
+                            </div>
+                            <div class="skill-item">
+                                <i data-lucide="terminal"></i>
+                                <span>Prompt Eng</span>
+                            </div>
+                        </div>
+                        <div class="marquee-content" aria-hidden="true">
+                            <!-- Skill items group 2 (Duplicate for infinite scroll) -->
                             <div class="skill-item">
                                 <i data-lucide="code"></i>
                                 <span>Web Dev</span>
@@ -746,7 +779,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
