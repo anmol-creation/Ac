@@ -457,3 +457,154 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
+
+/* Solar System Skills Layout */
+.solar-skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    padding: 3rem 0;
+}
+
+.solar-system {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sun {
+    position: relative;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sun:hover, .solar-system:hover .sun {
+    /* Accent colors will be overridden inline or via specific classes */
+    border-color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.sun i {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.sun span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.orbit {
+    pointer-events: none; /* so hover on sun is easier */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px dashed var(--border-color);
+    animation: rotate-orbit 20s linear infinite;
+    z-index: 1;
+}
+
+.planet {
+    pointer-events: auto; /* restore for planets */
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--text-muted);
+    /* Calculate position for 4 planets (0, 90, 180, 270 deg) */
+    top: 50%;
+    left: 50%;
+    margin-top: -25px; /* Half of height */
+    margin-left: -25px; /* Half of width */
+}
+
+/* Positioning planets on the orbit (radius = 125px) */
+.planet:nth-child(1) { transform: rotate(0deg) translateX(125px) rotate(0deg); }
+.planet:nth-child(2) { transform: rotate(90deg) translateX(125px) rotate(-90deg); }
+.planet:nth-child(3) { transform: rotate(180deg) translateX(125px) rotate(-180deg); }
+.planet:nth-child(4) { transform: rotate(270deg) translateX(125px) rotate(-270deg); }
+.planet:nth-child(5) { transform: rotate(72deg) translateX(125px) rotate(-72deg); }
+.planet:nth-child(6) { transform: rotate(144deg) translateX(125px) rotate(-144deg); }
+.planet:nth-child(7) { transform: rotate(216deg) translateX(125px) rotate(-216deg); }
+.planet:nth-child(8) { transform: rotate(288deg) translateX(125px) rotate(-288deg); }
+
+/* To keep text upright while orbit rotates, we counter-rotate the inner content of planets */
+.planet-content {
+    animation: counter-rotate-orbit 20s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+@keyframes rotate-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counter-rotate-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Adding logo support for planets */
+.planet-content img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+    .solar-skills-wrapper {
+        gap: 2rem;
+    }
+    .solar-system {
+        width: 200px;
+        height: 200px;
+    }
+    .orbit {
+    pointer-events: none; /* so hover on sun is easier */
+        /* Adjusted for smaller width */
+    }
+    .planet:nth-child(1) { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    .planet:nth-child(2) { transform: rotate(90deg) translateX(100px) rotate(-90deg); }
+    .planet:nth-child(3) { transform: rotate(180deg) translateX(100px) rotate(-180deg); }
+    .planet:nth-child(4) { transform: rotate(270deg) translateX(100px) rotate(-270deg); }
+}
+
+
+.sun.web-dev:hover { box-shadow: 0 0 15px rgba(97, 218, 251, 0.4); }
+.sun.ui-ux:hover { box-shadow: 0 0 15px rgba(242, 78, 30, 0.4); }
+.sun.photo-edit:hover { box-shadow: 0 0 15px rgba(49, 168, 255, 0.4); }
+.sun.video-edit:hover { box-shadow: 0 0 15px rgba(153, 153, 255, 0.4); }
+.sun.branding:hover { box-shadow: 0 0 15px rgba(255, 153, 0, 0.4); }
