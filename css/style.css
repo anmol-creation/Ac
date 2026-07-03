@@ -400,6 +400,13 @@ body {
     padding: 3rem 0;
 }
 
+/* Fix for marquee specifically for solar skills */
+.solar-skills-marquee {
+    gap: 4rem;
+    padding-right: 4rem; /* match gap for seamless loop */
+    align-items: center;
+}
+
 .solar-system {
     position: relative;
     width: 250px;
