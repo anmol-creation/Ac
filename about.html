@@ -131,14 +131,54 @@
             color: #ffffff;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #ffffff;
+            position: relative;
+        }
+
+        /* Glow effect behind the circle */
+        .hero-social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue, #6ba5ff), var(--accent-pink, #ff6b9e));
+            opacity: 0.4;
+            filter: blur(8px);
+            z-index: -1;
+            transition: all 0.3s ease;
         }
 
         .hero-social-link:hover {
             background: rgba(255, 255, 255, 0.15);
             transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
+
+        .hero-social-link:hover::before {
+            opacity: 0.7;
+            filter: blur(12px);
+        }
+
+        .hero-social-img {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Filter overrides to colorize black SVGs from simple-icons to original brand colors, plus a white drop-shadow for outline */
+        .brand-gmail { filter: invert(39%) sepia(87%) saturate(1787%) hue-rotate(338deg) brightness(97%) contrast(98%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Red */
+        .brand-whatsapp { filter: invert(56%) sepia(50%) saturate(2258%) hue-rotate(94deg) brightness(96%) contrast(100%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Green */
+        .brand-linkedin { filter: invert(31%) sepia(84%) saturate(2283%) hue-rotate(189deg) brightness(97%) contrast(101%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Blue */
+        .brand-fiverr { filter: invert(62%) sepia(91%) saturate(3020%) hue-rotate(104deg) brightness(96%) contrast(97%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Green */
+
+        .brand-instagram { filter: invert(36%) sepia(85%) saturate(2462%) hue-rotate(313deg) brightness(93%) contrast(98%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Pinkish */
+        .brand-facebook { filter: invert(31%) sepia(47%) saturate(2851%) hue-rotate(204deg) brightness(101%) contrast(94%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Blue */
+        .brand-pinterest { filter: invert(19%) sepia(95%) saturate(7443%) hue-rotate(352deg) brightness(97%) contrast(116%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Red */
+        .brand-youtube { filter: invert(15%) sepia(84%) saturate(6284%) hue-rotate(357deg) brightness(99%) contrast(115%) drop-shadow(0 0 1px white) drop-shadow(0 0 1px white); } /* Red */
 
         @media (max-width: 768px) {
             .about-hero .container {
@@ -564,30 +604,30 @@
                     <div class="hero-social-links">
                         <div class="hero-social-row" aria-label="Contact and Professional">
                             <a href="#" target="_blank" class="hero-social-link" aria-label="Email">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/gmail.svg" alt="Email" class="hero-social-img brand-gmail">
                             </a>
                             <a href="#" target="_blank" class="hero-social-link" aria-label="WhatsApp">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/whatsapp.svg" alt="WhatsApp" class="hero-social-img brand-whatsapp">
                             </a>
                             <a href="#" target="_blank" class="hero-social-link" aria-label="LinkedIn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg" alt="LinkedIn" class="hero-social-img brand-linkedin">
                             </a>
                             <a href="#" target="_blank" class="hero-social-link" aria-label="Fiverr">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.2V5.5c0-.8-.7-1.5-1.5-1.5h-11C5.7 4 5 4.7 5 5.5V8"></path><path d="M5 8v12h14V8"></path><path d="M12 12v3"></path><path d="M15 12v3"></path><path d="M9 12v3"></path></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/fiverr.svg" alt="Fiverr" class="hero-social-img brand-fiverr">
                             </a>
                         </div>
                         <div class="hero-social-row" aria-label="Social Media">
                             <a href="https://www.instagram.com/anmolcreations_fl?igsh=MmpyNHh0NzY3anVs" target="_blank" class="hero-social-link" aria-label="Instagram">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/instagram.svg" alt="Instagram" class="hero-social-img brand-instagram">
                             </a>
                             <a href="https://www.facebook.com/share/1HAwn9qVpn/" target="_blank" class="hero-social-link" aria-label="Facebook">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/facebook.svg" alt="Facebook" class="hero-social-img brand-facebook">
                             </a>
                             <a href="https://pin.it/407kXVCkB" target="_blank" class="hero-social-link" aria-label="Pinterest">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="12" x2="12" y2="22"></line><path d="M12 2a6 6 0 0 0-6 6c0 2 1.5 3 1.5 3s.2.5-.5 1.5c-1 1.5-2.5 2-2.5 2a8 8 0 1 1 16 0c0 4-3 7-6 7-2 0-3.5-1-3.5-1"></path></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/pinterest.svg" alt="Pinterest" class="hero-social-img brand-pinterest">
                             </a>
                             <a href="#" target="_blank" class="hero-social-link" aria-label="YouTube">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/youtube.svg" alt="YouTube" class="hero-social-img brand-youtube">
                             </a>
                         </div>
                     </div>
